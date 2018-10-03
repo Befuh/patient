@@ -10,8 +10,8 @@ import Hospitals from './screens/Hospitals';
 const PatientApp = createBottomTabNavigator({
   profile: { screen: Profile, path: '' },
   consultations: { screen: Consultations, path: 'cons' },
-  doctors: { screen: Doctors, path: '' },
-  hospitals: { screen: Hospitals, path: 'cons' }
+  doctors: { screen: Doctors, path: 'docs' },
+  hospitals: { screen: Hospitals, path: 'hos' }
 }, { tabBarOptions: {
       activeTintColor: '#2fb5ae'
    }
