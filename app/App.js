@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Profile from './screens/Profile';
 import Consultations from './screens/Consultations';
+import Doctors from './screens/Doctors';
+import Hospitals from './screens/Hospitals';
 
-const PatientApp = createStackNavigator({
-  profile: { screen: Profile },
-  consultations: { screen: Consultations }
-}, { initialRouteName: 'profile' });
+const PatientApp = createBottomTabNavigator({
+  profile: { screen: Profile, path: '' },
+  consultations: { screen: Consultations, path: 'cons' },
+  doctors: { screen: Doctors, path: '' },
+  hospitals: { screen: Hospitals, path: 'cons' }
+}, { tabBarOptions: {
+      activeTintColor: '#2fb5ae'
+   }
+});
 
 export default class App extends Component {
   render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <PatientApp />
-      </View>
-    );
+    return <PatientApp />;
   }
 }

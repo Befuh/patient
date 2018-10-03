@@ -3,13 +3,13 @@ import { View } from 'react-native';
 import { RkText } from 'react-native-ui-kitten';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class Consultations extends React.Component {
+export default class Hospitals extends React.Component {
   static navigationOptions = {
-    title: 'Consultations'.toUpperCase(),
-    tabBarLabel: 'Consultations',
+    title: 'Hospitals'.toUpperCase(),
+    tabBarLabel: 'Hospitals',
     tabBarIcon: ({ tintColor, focused, horizontal }) => (
       <Ionicons
-        name='ios-list'
+        name='ios-pin'
         size={horizontal ? 20 : 26}
         style={{ color: tintColor }}
       />
@@ -19,7 +19,7 @@ export default class Consultations extends React.Component {
   render() {
     return (
       <View>
-        <RkText rkType='header2'>{'Consultations coming soon'}</RkText>
+        <RkText rkType='header2'>{'Hospitals coming soon'}</RkText>
       </View>
     );
   }

@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { RkStyleSheet, RkText, RkButton } from 'react-native-ui-kitten';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Avatar } from '../components/avatar';
 import { data } from '../data';
 
 class Profile extends React.Component {
   static navigationOptions = {
-    title: 'User Profile'.toUpperCase()
+    title: 'User Profile'.toUpperCase(),
+    tabBarLabel: 'Profile',
+    tabBarIcon: ({ tintColor, focused, horizontal }) => (
+      <Ionicons
+        name='ios-person'
+        size={horizontal ? 20 : 26}
+        style={{ color: tintColor }}
+      />
+    )
   };
 
   state = { data: data.getUser() };
