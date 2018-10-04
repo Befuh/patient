@@ -6,6 +6,10 @@ import Profile from './screens/Profile';
 import Consultations from './screens/Consultations';
 import Doctors from './screens/Doctors';
 import Hospitals from './screens/Hospitals';
+import { bootstrap } from './config/bootstrap';
+
+
+bootstrap();
 
 const PatientApp = createBottomTabNavigator({
   profile: { screen: Profile, path: '' },
