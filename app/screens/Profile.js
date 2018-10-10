@@ -1,22 +1,13 @@
 import React from 'react';
 import { View, ScrollView, FlatList } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Avatar } from '../components/avatar';
-import { data } from '../data';
+import data from '../data';
 
 class Profile extends React.Component {
   static navigationOptions = {
-    title: 'User Profile'.toUpperCase(),
-    tabBarLabel: 'Profile',
-    tabBarIcon: ({ tintColor, focused, horizontal }) => (
-      <Ionicons
-        name='ios-person'
-        size={horizontal ? 20 : 26}
-        style={{ color: tintColor }}
-      />
-    )
+    title: 'User Profile'.toUpperCase()
   };
 
   state = { data: data.getUser() };
@@ -38,7 +29,7 @@ class Profile extends React.Component {
       <ScrollView style={styles.root}>
         <View style={styles.header}>
           <Avatar img={this.state.data.photo} rkType='big' />
-          <RkText rkType='xxlarge'>{`${this.state.data.first_name} ${this.state.data.last_name}`}</RkText>
+          <RkText rkType='header1'>{`${this.state.data.first_name} ${this.state.data.last_name}`}</RkText>
         </View>
 
         <View style={styles.userInfo}>
@@ -70,7 +61,7 @@ class Profile extends React.Component {
         </View>
         <View style={styles.userInfo}>
           <View style={styles.iconSection} >
-            { this.renderIcon('format-list-bulleted')}
+            { this.renderIcon('shield-half-full')}
           </View>
           <View style={styles.section}>
             <RkText rkType='subtitle hintColor' style={styles.space}>Pre Existing Conditions</RkText>
@@ -94,8 +85,8 @@ const styles = RkStyleSheet.create(theme => ({
   },
   header: {
     alignItems: 'center',
-    paddingTop: 25,
-    paddingBottom: 17,
+    paddingTop: 50,
+    paddingBottom: 18,
   },
   userInfo: {
     flexDirection: 'row',

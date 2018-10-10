@@ -6,9 +6,11 @@ class DataProvider {
     return user;
   }
 
-  getconsultations() {
+  getConsultations() {
     return consultations;
   }
 }
 
-export const data = new DataProvider();
+const data = new DataProvider();
+
+export default data;
