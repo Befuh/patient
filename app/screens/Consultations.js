@@ -6,6 +6,8 @@ import { createStackNavigator } from 'react-navigation';
 import Consultation from './Consultation';
 import format from '../utils/format';
 import NavigationType from '../config/navigation/propTypes';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import timeago from 'timeago.js';
 
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -22,6 +24,7 @@ class ConsultationsList extends React.Component {
 
   renderConsultation = ({ item }) => {
     const date = new Date(item.timestamp);
+    const updatedSince = timeago().format(date);
     return (
       <TouchableOpacity
         delayPressIn={70}
@@ -34,6 +37,14 @@ class ConsultationsList extends React.Component {
             <RkText rkType='subtitle hintColor'>{monthNames[date.getMonth()].toUpperCase()}</RkText>
             <RkText rkType='subtitle hintColor'>{date.getFullYear()}</RkText>
           </View>
+        </View>
+        <View style={styles.textSection}>
+          <RkText rkType='large' style={[styles.bold, styles.space]}>{`Consulted by ${item.doctor.name}`}</RkText>
+          <RkText rkType='subtitle hintColor' style={styles.space}>{`at ${item.health_facility.name}`}</RkText>
+          <RkText rkType='small'>{`Last updated ${updatedSince}`}</RkText>
+        </View>
+        <View style={styles.iconSection}>
+          <MaterialCommunityIcons name={'arrow-right'} size={20}/>
         </View>
       </TouchableOpacity>
     );
@@ -69,9 +80,12 @@ const Consultations = createStackNavigator({
   consultation: {
     screen: Consultation,
     path: '/consultation/:timestamp',
-    navigationOptions: ({ navigation }) => ({
-      title: `Consultation on ${navigation.state.params.timestamp}`,
-    })
+    navigationOptions: ({ navigation }) => {
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      const date = new Date(navigation.state.params.timestamp);
+
+      return { title: date.toLocaleDateString('en-GB', options) };
+    }
   }
 });
 
@@ -83,22 +97,35 @@ const styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     paddingHorizontal: 15,
     paddingVertical: 15,
-    height: 90,
+    height: 102,
     borderWidth: 1,
     borderColor: theme.colors.border.base
   },
   dateSection: {
     flex: 1
   },
+  textSection: {
+    paddingLeft: 10,
+    flex: 5
+  },
+  iconSection: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    flex: 1
+  },
   date: {
-    alignItems: 'center',
-    width: 50,
-    height: 60,
+    width: 45,
+    height: 70,
     backgroundColor: theme.colors.border.base,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   bold: {
     fontWeight: 'bold'
-  }
+  },
+  space: {
+    marginBottom: 3,
+  },
 }));
 
 export default Consultations;
