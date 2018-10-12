@@ -27,19 +27,22 @@ const consultations = [
         additional_info: 'Very server',
         symptom: { id: 1, name: 'Headache' }
       }
-    ]
+    ],
+    clinical_observations: [],
+    lab_results: [],
+    treatments: []
   },
   {
-    id: 1,
+    id: 2,
     timestamp: '2018-09-13T09:34:00',
     doctor: {
-      id: 34,
+      id: 45,
       name: 'Foo Bar',
       speciality: 'General Practitioner',
       salutation: 'Dr.'
     },
     health_facility: {
-      id: 54,
+      id: 90,
       name: 'Lacantini',
       address: 'Bonamoussadi, Douala'
     },
@@ -49,7 +52,10 @@ const consultations = [
         time_from: '2018-09-12T05:00:00',
         symptom: { id: 1, name: 'Stomach ache' }
       }
-    ]
+    ],
+    clinical_observations: [],
+    lab_results: [],
+    treatments: []
   }
 ];
 

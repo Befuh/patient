@@ -3,7 +3,7 @@ import { View, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import data from '../data';
 import { createStackNavigator } from 'react-navigation';
-import Consultation from './Consultation';
+import ConsultationTabs from './consultation/Tabs';
 import format from '../utils/format';
 import NavigationType from '../config/navigation/propTypes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -19,7 +19,7 @@ class ConsultationsList extends React.Component {
   state = { data: data.getConsultations() };
 
   onItemPressed = ({ item }) => {
-    this.props.navigation.navigate('Consultation', { timestamp: item.timestamp });
+    this.props.navigation.navigate('ConsultationTabs', { timestamp: item.timestamp });
   }
 
   renderConsultation = ({ item }) => {
@@ -52,21 +52,16 @@ class ConsultationsList extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         <FlatList
           data={this.state.data}
           renderItem={this.renderConsultation}
           keyExtractor={(consultation, index) => index.toString()}
-          style={styles.root}
         />
       </ScrollView>
     );
   }
 };
-
-const ConsultationScreen = ({ navigation }) => (
-  <Consultation navigation={navigation} />
-);
 
 
 const Consultations = createStackNavigator({
@@ -78,7 +73,7 @@ const Consultations = createStackNavigator({
     }
   },
   consultation: {
-    screen: Consultation,
+    screen: ConsultationTabs,
     path: '/consultation/:timestamp',
     navigationOptions: ({ navigation }) => {
       const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };

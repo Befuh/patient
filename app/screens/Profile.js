@@ -110,7 +110,7 @@ const styles = RkStyleSheet.create(theme => ({
   },
   icon: {
     backgroundColor: 'transparent',
-    color: '#ffffff'
+    color: theme.colors.screen.base
   },
   section: {
     flex: 5,
