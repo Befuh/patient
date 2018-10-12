@@ -8,6 +8,7 @@ import Hospitals from './screens/Hospitals';
 import { bootstrap } from './config/bootstrap';
 import { KittenTheme } from './config/theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SplashScreen from 'react-native-splash-screen';
 
 
 bootstrap();
@@ -79,6 +80,10 @@ const PatientApp = createBottomTabNavigator({
 });
 
 export default class App extends Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return <PatientApp />;
   }
