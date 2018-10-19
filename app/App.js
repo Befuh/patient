@@ -14,21 +14,6 @@ import SplashScreen from 'react-native-splash-screen';
 bootstrap();
 
 const PatientApp = createBottomTabNavigator({
-  profile: {
-    screen: Profile,
-    path: '',
-    navigationOptions: {
-      title: 'User Profile'.toUpperCase(),
-      tabBarLabel: 'Profile',
-      tabBarIcon: ({ tintColor, focused, horizontal }) => (
-        <Ionicons
-          name='ios-person'
-          size={horizontal ? 20 : 26}
-          style={{ color: tintColor }}
-        />
-      )
-    }
-  },
   consultations: {
     screen: Consultations,
     path: 'cons',
@@ -68,6 +53,21 @@ const PatientApp = createBottomTabNavigator({
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
           name='ios-pin'
+          size={horizontal ? 20 : 26}
+          style={{ color: tintColor }}
+        />
+      )
+    }
+  },
+  profile: {
+    screen: Profile,
+    path: '',
+    navigationOptions: {
+      title: 'User Profile'.toUpperCase(),
+      tabBarLabel: 'Profile',
+      tabBarIcon: ({ tintColor, focused, horizontal }) => (
+        <Ionicons
+          name='ios-person'
           size={horizontal ? 20 : 26}
           style={{ color: tintColor }}
         />

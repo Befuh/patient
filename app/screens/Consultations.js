@@ -69,7 +69,7 @@ const Consultations = createStackNavigator({
     screen: ConsultationsList,
     path: '/',
     navigationOptions: {
-      title: 'Consultations'
+      title: 'My Consultations'
     }
   },
   consultation: {
