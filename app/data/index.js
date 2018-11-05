@@ -9,6 +9,10 @@ class DataProvider {
   getConsultations() {
     return consultations;
   }
+
+  getSymptoms(timestamp) {
+    return consultations.find(con => con.timestamp == timestamp).symptoms;
+  }
 }
 
 const data = new DataProvider();

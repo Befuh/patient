@@ -63,7 +63,6 @@ class ConsultationsList extends React.Component {
   }
 };
 
-
 const Consultations = createStackNavigator({
   consultationsList: {
     screen: ConsultationsList,

@@ -17,7 +17,7 @@ const consultations = [
       {
         id: 1,
         time_from: '2018-01-02T06:00:00',
-        time_from: '2018-01-02T12:00:00',
+        time_to: '2018-01-02T12:00:00',
         additional_info: 'Very server',
         symptom: { id: 1, name: 'Fever' }
       },
@@ -28,7 +28,18 @@ const consultations = [
         symptom: { id: 1, name: 'Headache' }
       }
     ],
-    clinical_observations: [],
+    clinical_observations: [
+      {
+        exam: 'Temperature',
+        result: '39',
+        interpretation: 'high'
+      },
+      {
+        exam: 'Blood pressure',
+        result: '123/69',
+        interpretation: 'normal'
+      }
+    ],
     lab_results: [],
     treatments: []
   },
@@ -53,7 +64,13 @@ const consultations = [
         symptom: { id: 1, name: 'Stomach ache' }
       }
     ],
-    clinical_observations: [],
+    clinical_observations: [
+      {
+        exam: 'Temperature',
+        result: '25',
+        interpretation: 'normal'
+      }
+    ],
     lab_results: [],
     treatments: []
   }

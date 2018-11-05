@@ -18,7 +18,6 @@ const PatientApp = createBottomTabNavigator({
     screen: Consultations,
     path: 'cons',
     navigationOptions: {
-      title: 'Consultations'.toUpperCase(),
       tabBarLabel: 'Consultations',
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
@@ -33,7 +32,6 @@ const PatientApp = createBottomTabNavigator({
     screen: Doctors,
     path: 'docs',
     navigationOptions: {
-      title: 'Doctors'.toUpperCase(),
       tabBarLabel: 'Doctors',
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
@@ -48,7 +46,6 @@ const PatientApp = createBottomTabNavigator({
     screen: Hospitals,
     path: 'hos',
     navigationOptions: {
-      title: 'Hospitals'.toUpperCase(),
       tabBarLabel: 'Hospitals',
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
@@ -63,7 +60,6 @@ const PatientApp = createBottomTabNavigator({
     screen: Profile,
     path: '',
     navigationOptions: {
-      title: 'User Profile'.toUpperCase(),
       tabBarLabel: 'Profile',
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
