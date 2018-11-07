@@ -24,6 +24,7 @@ const consultations = [
       {
         id: 1,
         time_from: '2018-01-02T06:00:00',
+        time_to: '2018-01-03T12:00:00',
         additional_info: 'Very server',
         symptom: { id: 1, name: 'Headache' }
       }
@@ -61,6 +62,7 @@ const consultations = [
       {
         id: 1,
         time_from: '2018-09-12T05:00:00',
+        time_to: '2018-09-13T09:34:00',
         symptom: { id: 1, name: 'Stomach ache' }
       }
     ],

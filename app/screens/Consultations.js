@@ -7,9 +7,10 @@ import ConsultationTabs from './consultation/Tabs';
 import format from '../utils/format';
 import NavigationType from '../config/navigation/propTypes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import timeago from 'timeago.js';
+import moment from 'moment';
+import DeviceInfo from 'react-native-device-info';
 
-const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+moment.locale = DeviceInfo.getDeviceLocale();
 
 class ConsultationsList extends React.Component {
   static propTypes = {
@@ -23,8 +24,7 @@ class ConsultationsList extends React.Component {
   }
 
   renderConsultation = ({ item }) => {
-    const date = new Date(item.timestamp);
-    const updatedSince = timeago().format(date);
+    const date = moment(new Date(item.timestamp));
     return (
       <TouchableOpacity
         delayPressIn={70}
@@ -33,15 +33,15 @@ class ConsultationsList extends React.Component {
         onPress={() => this.props.navigation.navigate('consultation', { timestamp: item.timestamp })}>
         <View style={styles.dateSection}>
           <View style={styles.date}>
-            <RkText rkType='large' style={styles.bold}>{format.dateNumber(date.getDate())}</RkText>
-            <RkText rkType='subtitle hintColor'>{monthNames[date.getMonth()].toUpperCase()}</RkText>
-            <RkText rkType='subtitle hintColor'>{date.getFullYear()}</RkText>
+            <RkText rkType='large' style={styles.bold}>{date.format('DD')}</RkText>
+            <RkText rkType='subtitle hintColor'>{date.format('MMM').toUpperCase()}</RkText>
+            <RkText rkType='subtitle hintColor'>{date.format('YYYY')}</RkText>
           </View>
         </View>
         <View style={styles.textSection}>
           <RkText rkType='large' style={[styles.bold, styles.space]}>{`Consulted by ${item.doctor.name}`}</RkText>
           <RkText rkType='subtitle hintColor' style={styles.space}>{`at ${item.health_facility.name}`}</RkText>
-          <RkText rkType='small'>{`Last updated ${updatedSince}`}</RkText>
+          <RkText rkType='small'>{`Last updated ${date.from(moment())}`}</RkText>
         </View>
         <View style={styles.iconSection}>
           <MaterialCommunityIcons name={'arrow-right'} size={20}/>
@@ -75,10 +75,9 @@ const Consultations = createStackNavigator({
     screen: ConsultationTabs,
     path: '/consultation/:timestamp',
     navigationOptions: ({ navigation }) => {
-      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-      const date = new Date(navigation.state.params.timestamp);
+      const date = moment(new Date(navigation.state.params.timestamp));
 
-      return { title: date.toLocaleDateString('en-GB', options) };
+      return { title: date.format('ddd, Mo MMM YYYY') };
     }
   }
 });
