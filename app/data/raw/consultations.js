@@ -42,6 +42,7 @@ const consultations = [
       }
     ],
     lab_results: [],
+    diagnoses: [],
     treatments: []
   },
   {
@@ -74,6 +75,7 @@ const consultations = [
       }
     ],
     lab_results: [],
+    diagnoses: [],
     treatments: []
   }
 ];

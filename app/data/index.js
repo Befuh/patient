@@ -17,6 +17,18 @@ class DataProvider {
   getClinicalObservations(timestamp) {
     return consultations.find(con => con.timestamp == timestamp).clinical_observations;
   }
+
+  getLabResults(timestamp) {
+    return consultations.find(con => con.timestamp == timestamp).lab_results;
+  }
+
+  getDiagnoses(timestamp) {
+    return consultations.find(con => con.timestamp == timestamp).diagnoses;
+  }
+
+  getTreatments(timestamp) {
+    return consultations.find(con => con.timestamp == timestamp).treatments;
+  }
 }
 
 const data = new DataProvider();
