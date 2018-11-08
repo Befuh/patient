@@ -15,7 +15,13 @@ export default class Symptoms extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { symptoms: data.getSymptoms(props.navigation.state.params.timestamp) };
+
+    const timestamp = props.navigation.state.params.timestamp;
+
+    this.state = {
+      symptoms: data.getSymptoms(timestamp),
+      clinicalObservations: data.getClinicalObservations(timestamp)
+    };
   }
 
   renderSymptom = ({ item }) => {
@@ -24,10 +30,22 @@ export default class Symptoms extends React.Component {
     return (
       <View style={styles.section}>
         <View style={styles.header}>
-          <RkText rkType='large' style={styles.symptom}>{item.symptom.name}</RkText>
-          <RkText rkType='subtitle' style={styles.duration}>duration of {duration}</RkText>
+          <RkText rkType='large' style={styles.title}>{item.symptom.name}</RkText>
+          <RkText rkType='subtitle' style={styles.subHeading}>duration of {duration}</RkText>
         </View>
-        <RkText rkType='small' style={styles.additionalInfo}>{item.additional_info}</RkText>
+        <RkText rkType='small' style={styles.info}>{item.additional_info}</RkText>
+      </View>
+    );
+  };
+
+  renderClinicalObservation = ({ item }) => {
+    return (
+      <View style={styles.section}>
+        <View style={styles.header}>
+          <RkText rkType='large' style={styles.title}>{item.exam}</RkText>
+          <RkText rkType='subtitle' style={styles.subHeading}>{item.result}</RkText>
+        </View>
+        <RkText rkType='small' style={styles.info}>{item.interpretation}</RkText>
       </View>
     );
   };
@@ -39,6 +57,12 @@ export default class Symptoms extends React.Component {
         <FlatList
           data={this.state.symptoms}
           renderItem={this.renderSymptom}
+          keyExtractor={(symptom, index) => index.toString()}
+        />
+        <RkText rkType='header3' style={styles.sectionHeader}>Clinical Observations</RkText>
+        <FlatList
+          data={this.state.clinicalObservations}
+          renderItem={this.renderClinicalObservation}
           keyExtractor={(symptom, index) => index.toString()}
         />
       </ScrollView>
@@ -66,14 +90,14 @@ const styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     height: 40
   },
-  symptom: {
+  title: {
     flex: 1
   },
-  duration: {
+  subHeading: {
     flex: 1,
     textAlign: 'right'
   },
-  additionalInfo: {
+  info: {
     height: 40,
     justifyContent: 'flex-end'
   },

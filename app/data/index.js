@@ -13,6 +13,10 @@ class DataProvider {
   getSymptoms(timestamp) {
     return consultations.find(con => con.timestamp == timestamp).symptoms;
   }
+
+  getClinicalObservations(timestamp) {
+    return consultations.find(con => con.timestamp == timestamp).clinical_observations;
+  }
 }
 
 const data = new DataProvider();
