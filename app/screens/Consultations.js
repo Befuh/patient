@@ -39,7 +39,7 @@ class ConsultationsList extends React.Component {
           </View>
         </View>
         <View style={styles.textSection}>
-          <RkText rkType='large' style={[styles.bold, styles.space]}>{`Consulted by ${item.doctor.name}`}</RkText>
+          <RkText rkType='large' style={[styles.bold, styles.space]}>{`By ${item.doctor.salutation} ${item.doctor.name}`}</RkText>
           <RkText rkType='subtitle hintColor' style={styles.space}>{`at ${item.health_facility.name}`}</RkText>
           <RkText rkType='small'>{`Last updated ${date.from(moment())}`}</RkText>
         </View>
