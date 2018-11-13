@@ -4,6 +4,7 @@ import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import NavigationType from '../../config/navigation/propTypes';
 import NoData from '../../components/noData';
 import InfoItem from '../../components/infoItem';
+import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
 
 export default class Analysis extends React.Component {
@@ -49,9 +50,9 @@ export default class Analysis extends React.Component {
   render() {
     return (
       <ScrollView style={styles.root}>
-        <RkText rkType='header3' style={styles.sectionHeader}>Lab Results</RkText>
+        <SectionHeader heading={'Lab Results'} />
         {this.renderLabResults()}
-        <RkText rkType='header3' style={styles.sectionHeader}>Diagnoses</RkText>
+        <SectionHeader heading={'Diagnoses'} />
         {this.renderDiagnoses()}
       </ScrollView>
     );
@@ -60,10 +61,5 @@ export default class Analysis extends React.Component {
 
 const styles = RkStyleSheet.create(theme => ({
   root: {
-  },
-  sectionHeader: {
-    paddingHorizontal: 15,
-    marginTop: 30,
-    marginBottom: 5
   }
 }));

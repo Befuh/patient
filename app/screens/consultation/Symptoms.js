@@ -6,6 +6,7 @@ import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
 import NoData from '../../components/noData';
 import InfoItem from '../../components/infoItem';
+import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
 
 moment.locale = DeviceInfo.getDeviceLocale();
@@ -63,9 +64,9 @@ export default class Symptoms extends React.Component {
   render() {
     return (
       <ScrollView style={styles.root}>
-        <RkText rkType='header3' style={styles.sectionHeader}>Symptoms</RkText>
+        <SectionHeader heading={'Symptoms'} />
         {this.renderSymptoms()}
-        <RkText rkType='header3' style={styles.sectionHeader}>Clinical Observations</RkText>
+        <SectionHeader heading={'Clinical Observations'} />
         {this.renderClinicalObservations()}
       </ScrollView>
     );
@@ -74,10 +75,5 @@ export default class Symptoms extends React.Component {
 
 const styles = RkStyleSheet.create(theme => ({
   root: {
-  },
-  sectionHeader: {
-    paddingHorizontal: 15,
-    marginTop: 30,
-    marginBottom: 5
   }
 }));

@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 
 export default class InfoItem extends React.Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string,
+    info: PropTypes.string
+  };
+
   render() {
     return (
       <View style={styles.section}>

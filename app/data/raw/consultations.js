@@ -50,7 +50,12 @@ const consultations = [
         "name": "Typhoid Fever"
       }
     ],
-    treatments: []
+    treatments: [
+      {
+        "type": "Paracetamol",
+        "description": "2 tables, 2 times daily"
+      }
+    ]
   },
   {
     id: 2,
