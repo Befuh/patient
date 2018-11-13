@@ -42,7 +42,14 @@ const consultations = [
       }
     ],
     lab_results: [],
-    diagnoses: [],
+    diagnoses: [
+      {
+        "name": "Maleria"
+      },
+      {
+        "name": "Typhoid Fever"
+      }
+    ],
     treatments: []
   },
   {
@@ -74,6 +81,30 @@ const consultations = [
         interpretation: 'normal'
       }
     ],
+    lab_results: [],
+    diagnoses: [
+      {
+        "name": "Yellow Fever"
+      }
+    ],
+    treatments: []
+  },
+  {
+    id: 3,
+    timestamp: '2018-11-05T12:00:00',
+    doctor: {
+      id: 45,
+      name: 'Obiobio Wanjo',
+      speciality: 'Surgent',
+      salutation: 'Dr.'
+    },
+    health_facility: {
+      id: 90,
+      name: 'Lacantini',
+      address: 'Bonamoussadi, Douala'
+    },
+    symptoms: [],
+    clinical_observations: [],
     lab_results: [],
     diagnoses: [],
     treatments: []

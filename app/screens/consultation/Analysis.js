@@ -3,6 +3,7 @@ import { View, ScrollView, FlatList } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import NavigationType from '../../config/navigation/propTypes';
 import NoData from '../../components/noData';
+import InfoItem from '../../components/infoItem';
 import data from '../../data';
 
 export default class Analysis extends React.Component {
@@ -30,7 +31,19 @@ export default class Analysis extends React.Component {
   renderDiagnoses = () => {
     if (this.state.diagnoses.length === 0) return <NoData text='No diagnoses available' />;
 
-    return <RkText rkType='large'>Coming soon...</RkText>;
+    return <FlatList
+             data={this.state.diagnoses}
+             renderItem={this.renderDiagnosis}
+             keyExtractor={(symptom, index) => index.toString()}
+           />;
+  };
+
+  renderDiagnosis = ({ item }) => {
+    return <InfoItem
+             title={item.name}
+             subTitle={''}
+             info={''}
+           />;
   };
 
   render() {
@@ -52,31 +65,5 @@ const styles = RkStyleSheet.create(theme => ({
     paddingHorizontal: 15,
     marginTop: 30,
     marginBottom: 5
-  },
-  section: {
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderWidth: 1,
-    height: 80,
-    borderColor: theme.colors.border.base,
-    backgroundColor: theme.colors.screen.base
-  },
-  header: {
-    flexDirection: 'row',
-    height: 40
-  },
-  title: {
-    flex: 1
-  },
-  subHeading: {
-    flex: 1,
-    textAlign: 'right'
-  },
-  info: {
-    height: 40,
-    justifyContent: 'flex-end'
-  },
-  bold: {
-    fontWeight: 'bold'
   }
 }));
