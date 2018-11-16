@@ -84,7 +84,6 @@ const Consultations = createStackNavigator({
 
 const styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.screen.base,
   },
   consul: {
     flexDirection: 'row',
@@ -92,7 +91,8 @@ const styles = RkStyleSheet.create(theme => ({
     paddingVertical: 15,
     height: 102,
     borderWidth: 1,
-    borderColor: theme.colors.border.base
+    borderColor: theme.colors.border.base,
+    backgroundColor: theme.colors.screen.base
   },
   dateSection: {
     flex: 1

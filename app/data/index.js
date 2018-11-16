@@ -1,9 +1,14 @@
 import user from './raw/user';
 import consultations from './raw/consultations';
+import doctors from './raw/doctors';
 
 class DataProvider {
   getUser() {
     return user;
+  }
+
+  getDoctors() {
+    return doctors;
   }
 
   getConsultations() {

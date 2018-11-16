@@ -98,7 +98,7 @@ const consultations = [
     id: 3,
     timestamp: '2018-11-05T12:00:00',
     doctor: {
-      id: 45,
+      id: 49,
       name: 'Obiobio Wanjo',
       speciality: 'Surgent',
       salutation: 'Dr.'
