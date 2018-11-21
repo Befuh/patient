@@ -84,6 +84,7 @@ const Consultations = createStackNavigator({
 
 const styles = RkStyleSheet.create(theme => ({
   root: {
+    paddingVertical: 5
   },
   consul: {
     flexDirection: 'row',

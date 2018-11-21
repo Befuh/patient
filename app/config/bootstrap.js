@@ -1,5 +1,6 @@
 import { RkTheme } from 'react-native-ui-kitten';
 import { AvatarTypes } from '../components/avatar/types';
+import { InfoTypes } from '../components/info/types';
 import { KittenTheme } from './theme';
 
 export const bootstrap = () => {
@@ -22,4 +23,5 @@ export const bootstrap = () => {
   });
 
   RkTheme.registerComponent('Avatar', AvatarTypes);
+  RkTheme.registerComponent('Info', InfoTypes);
 };

@@ -11,6 +11,8 @@ const consultations = [
     health_facility: {
       id: 54,
       name: 'Mount Mary Hospital',
+      departments: 'General Practice, Martenity',
+      city: 'Buea',
       address: 'Buea Town, Buea'
     },
     symptoms: [
@@ -69,6 +71,8 @@ const consultations = [
     health_facility: {
       id: 90,
       name: 'Lacantini',
+      departments: 'General Practice, Martenity, Gynacology',
+      city: 'Douala',
       address: 'Bonamoussadi, Douala'
     },
     symptoms: [
@@ -106,6 +110,8 @@ const consultations = [
     health_facility: {
       id: 90,
       name: 'Lacantini',
+      departments: 'General Practice, Martenity, Gynacology',
+      city: 'Douala',
       address: 'Bonamoussadi, Douala'
     },
     symptoms: [],

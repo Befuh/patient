@@ -3,7 +3,7 @@ import { View, ScrollView, FlatList } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import NavigationType from '../../config/navigation/propTypes';
 import NoData from '../../components/noData';
-import InfoItem from '../../components/infoItem';
+import { Info } from '../../components/info';
 import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
 
@@ -40,7 +40,7 @@ export default class Analysis extends React.Component {
   };
 
   renderDiagnosis = ({ item }) => {
-    return <InfoItem
+    return <Info
              title={item.name}
              subTitle={''}
              info={''}

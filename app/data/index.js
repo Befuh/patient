@@ -11,6 +11,10 @@ class DataProvider {
     return doctors;
   }
 
+  getHospitals() {
+    return consultations.map(con => con.health_facility);
+  }
+
   getConsultations() {
     return consultations;
   }

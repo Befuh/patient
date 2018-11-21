@@ -5,7 +5,7 @@ import NavigationType from '../../config/navigation/propTypes';
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
 import NoData from '../../components/noData';
-import InfoItem from '../../components/infoItem';
+import { Info } from '../../components/info';
 import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
 
@@ -40,7 +40,7 @@ export default class Symptoms extends React.Component {
   renderSymptom = ({ item }) => {
     const diff = moment(new Date(item.time_to)).diff(moment(new Date(item.time_from)));
     const duration = moment.duration(diff).humanize();
-    return <InfoItem
+    return <Info
              title={item.symptom.name}
              subTitle={`duration of ${duration}`}
              info={item.additional_info}
@@ -58,7 +58,7 @@ export default class Symptoms extends React.Component {
   };
 
   renderClinicalObservation = ({ item }) => {
-    return <InfoItem title={item.exam} subTitle={item.result} info={item.interpretation} />;
+    return <Info title={item.exam} subTitle={item.result} info={item.interpretation} />;
   };
 
   render() {
