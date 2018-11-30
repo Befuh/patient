@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Info } from '../components/info';
 import NavigationType from '../config/navigation/propTypes';
 import data from '../data';
+import i18n from '../i18n';
 
 class HospitalsList extends React.Component {
   static propTypes = {
@@ -35,7 +36,7 @@ const Hospitals = createStackNavigator({
     screen: HospitalsList,
     path: '/',
     navigationOptions: {
-      title: 'Hospitals'
+      title: i18n.t('hospital.title')
     }
   }
 });

@@ -3,13 +3,11 @@ import { View, ScrollView, FlatList } from 'react-native';
 import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import NavigationType from '../../config/navigation/propTypes';
 import moment from 'moment';
-import DeviceInfo from 'react-native-device-info';
 import NoData from '../../components/noData';
 import { Info } from '../../components/info';
 import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
-
-moment.locale = DeviceInfo.getDeviceLocale();
+import i18n from '../../i18n';
 
 export default class Symptoms extends React.Component {
   static propTypes = {
@@ -27,8 +25,12 @@ export default class Symptoms extends React.Component {
     };
   }
 
+  componentWillMount() {
+    moment.locale = i18n.currentLocale();
+  }
+
   renderSymptoms = () => {
-    if (this.state.symptoms.length === 0) return <NoData text='No symptoms available' />;
+    if (this.state.symptoms.length === 0) return <NoData text={i18n.t('consultation.symptom.noData')} />;
 
     return <FlatList
              data={this.state.symptoms}
@@ -48,7 +50,7 @@ export default class Symptoms extends React.Component {
   };
 
   renderClinicalObservations = () => {
-    if (this.state.clinicalObservations.length === 0) return <NoData text='No clinical observations available' />;
+    if (this.state.clinicalObservations.length === 0) return <NoData text={i18n.t('consultation.clinicalObservation.noData')} />;
 
     return <FlatList
              data={this.state.clinicalObservations}
@@ -64,9 +66,9 @@ export default class Symptoms extends React.Component {
   render() {
     return (
       <ScrollView style={styles.root}>
-        <SectionHeader heading={'Symptoms'} />
+        <SectionHeader heading={i18n.t('consultation.symptom.title')} />
         {this.renderSymptoms()}
-        <SectionHeader heading={'Clinical Observations'} />
+        <SectionHeader heading={i18n.t('consultation.clinicalObservation.title')} />
         {this.renderClinicalObservations()}
       </ScrollView>
     );

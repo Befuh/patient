@@ -4,10 +4,11 @@ import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Avatar } from '../components/avatar';
 import data from '../data';
+import i18n from '../i18n';
 
 class Profile extends React.Component {
   static navigationOptions = {
-    title: 'User Profile'.toUpperCase()
+    title: i18n.t('profile.title').toUpperCase()
   };
 
   state = { data: data.getUser() };
@@ -37,7 +38,7 @@ class Profile extends React.Component {
             { this.renderIcon('gender-male-female')}
           </View>
           <View style={[styles.section, styles.bordered]}>
-            <RkText rkType='subtitle hintColor' style={styles.space}>Gender</RkText>
+            <RkText rkType='subtitle hintColor' style={styles.space}>{i18n.t('profile.gender')}</RkText>
             <RkText rkType='header'>{this.state.data.sex}</RkText>
           </View>
         </View>
@@ -46,7 +47,7 @@ class Profile extends React.Component {
             { this.renderIcon('calendar')}
           </View>
           <View style={[styles.section, styles.bordered]}>
-            <RkText rkType='subtitle hintColor' style={styles.space}>Date Of Birth</RkText>
+            <RkText rkType='subtitle hintColor' style={styles.space}>{i18n.t('profile.dateOfBirth')}</RkText>
             <RkText rkType='header'>{this.state.data.date_of_birth}</RkText>
           </View>
         </View>
@@ -55,7 +56,7 @@ class Profile extends React.Component {
             { this.renderIcon('home-map-marker')}
           </View>
           <View style={[styles.section, styles.bordered]}>
-            <RkText rkType='subtitle hintColor' style={styles.space}>Address</RkText>
+            <RkText rkType='subtitle hintColor' style={styles.space}>{i18n.t('profile.address')}</RkText>
             <RkText rkType='header'>{this.state.data.address}</RkText>
           </View>
         </View>
@@ -64,7 +65,7 @@ class Profile extends React.Component {
             { this.renderIcon('shield-half-full')}
           </View>
           <View style={styles.section}>
-            <RkText rkType='subtitle hintColor' style={styles.space}>Pre Existing Conditions</RkText>
+            <RkText rkType='subtitle hintColor' style={styles.space}>{i18n.t('profile.preExistingConditions')}</RkText>
             <FlatList
               data={this.state.data.pre_existing_conditions}
               renderItem={this.renderPreExistingConditionItem}

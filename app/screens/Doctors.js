@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import PersonItem from '../components/personItem';
 import NavigationType from '../config/navigation/propTypes';
 import data from '../data';
+import i18n from '../i18n';
 
 const photo = require('../data/img/avatars/person.png');
 
@@ -20,7 +21,7 @@ class DoctorsList extends React.Component {
       <PersonItem
         image={photo}
         title={`${item.salutation} ${item.name}`}
-        infoTitle={'Specialization'}
+        infoTitle={i18n.t('doctor.specialization')}
         info={item.speciality}
         text={item.health_facility.name}
         text2={item.health_facility.address}
@@ -46,7 +47,7 @@ const Doctors = createStackNavigator({
     screen: DoctorsList,
     path: '/',
     navigationOptions: {
-      title: 'My Doctors'
+      title: i18n.t('doctor.title')
     }
   }
 });

@@ -9,6 +9,8 @@ import { bootstrap } from './config/bootstrap';
 import { KittenTheme } from './config/theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SplashScreen from 'react-native-splash-screen';
+import RNLanguages from 'react-native-languages';
+import i18n from './i18n';
 
 
 bootstrap();
@@ -18,7 +20,7 @@ const PatientApp = createBottomTabNavigator({
     screen: Consultations,
     path: 'cons',
     navigationOptions: {
-      tabBarLabel: 'Consultations',
+      tabBarLabel: i18n.t('consultation.menuTitle'),
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
           name='ios-list'
@@ -32,7 +34,7 @@ const PatientApp = createBottomTabNavigator({
     screen: Doctors,
     path: 'docs',
     navigationOptions: {
-      tabBarLabel: 'Doctors',
+      tabBarLabel: i18n.t('doctor.menuTitle'),
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
           name='ios-pulse'
@@ -46,7 +48,7 @@ const PatientApp = createBottomTabNavigator({
     screen: Hospitals,
     path: 'hos',
     navigationOptions: {
-      tabBarLabel: 'Hospitals',
+      tabBarLabel: i18n.t('hospital.menuTitle'),
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
           name='ios-pin'
@@ -60,7 +62,7 @@ const PatientApp = createBottomTabNavigator({
     screen: Profile,
     path: '',
     navigationOptions: {
-      tabBarLabel: 'Profile',
+      tabBarLabel: i18n.t('profile.menuTitle'),
       tabBarIcon: ({ tintColor, focused, horizontal }) => (
         <Ionicons
           name='ios-person'
@@ -76,9 +78,22 @@ const PatientApp = createBottomTabNavigator({
 });
 
 export default class App extends Component {
+
+  componentWillMount() {
+    RNLanguages.addEventListener('change', this._onLanguagesChange);
+  }
+
   componentDidMount() {
     SplashScreen.hide();
   }
+
+  componentWillUnmount() {
+    RNLanguages.removeEventListener('change', this._onLanguagesChange);
+  }
+
+  _onLanguagesChange = ({ language }) => {
+    i18n.locale = language;
+  };
 
   render() {
     return <PatientApp />;

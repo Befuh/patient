@@ -6,6 +6,7 @@ import NoData from '../../components/noData';
 import { Info } from '../../components/info';
 import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
+import i18n from '../../i18n';
 
 export default class Treatments extends React.Component {
   static propTypes = {
@@ -21,7 +22,7 @@ export default class Treatments extends React.Component {
   }
 
   renderTreatments = () => {
-    if (this.state.treatments.length === 0) return <NoData text='No treatments available' />;
+    if (this.state.treatments.length === 0) return <NoData text={i18n.t('consultation.treatment.noData')} />;
 
     return <FlatList
              data={this.state.treatments}
@@ -37,7 +38,7 @@ export default class Treatments extends React.Component {
   render() {
     return (
       <ScrollView style={styles.root}>
-        <SectionHeader heading={'Treatments'} />
+        <SectionHeader heading={i18n.t('consultation.treatment.title')} />
         {this.renderTreatments()}
       </ScrollView>
     );

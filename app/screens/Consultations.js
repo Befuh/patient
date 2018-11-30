@@ -8,9 +8,7 @@ import format from '../utils/format';
 import NavigationType from '../config/navigation/propTypes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import moment from 'moment';
-import DeviceInfo from 'react-native-device-info';
-
-moment.locale = DeviceInfo.getDeviceLocale();
+import i18n from '../i18n';
 
 class ConsultationsList extends React.Component {
   static propTypes = {
@@ -18,6 +16,10 @@ class ConsultationsList extends React.Component {
   };
 
   state = { data: data.getConsultations() };
+
+  componentWillMount() {
+    moment.locale = i18n.currentLocale();
+  }
 
   onItemPressed = ({ item }) => {
     this.props.navigation.navigate('ConsultationTabs', { timestamp: item.timestamp });
@@ -68,7 +70,7 @@ const Consultations = createStackNavigator({
     screen: ConsultationsList,
     path: '/',
     navigationOptions: {
-      title: 'My Consultations'
+      title: i18n.t('consultation.title')
     }
   },
   consultation: {

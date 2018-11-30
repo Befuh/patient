@@ -6,7 +6,7 @@ import Symptoms from './Symptoms';
 import Analysis from './Analysis';
 import Treatments from './Treatments';
 import { KittenTheme } from '../../config/theme';
-import format from '../../utils/format';
+import i18n from '../../i18n';
 
 const CustomTabBar = ({ navigation }) => {
   const { routes } = navigation.state;
@@ -31,7 +31,7 @@ const CustomTabBar = ({ navigation }) => {
           style={tabStyles(route.routeName)}
           key={route.routeName}
         >
-          <RkText style={textStyles(route.routeName)}>{format.capitalize(route.routeName)}</RkText>
+          <RkText style={textStyles(route.routeName)}>{i18n.t(`consultation.${route.routeName}`)}</RkText>
         </TouchableOpacity>
       ))}
     </SafeAreaView>

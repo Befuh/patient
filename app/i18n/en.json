@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "menuTitle": "Profile",
+    "title": "User Profile",
+    "gender": "Gender",
+    "dateOfBirth": "Date of Birth",
+    "address": "Address",
+    "preExistingConditions": "Pre Existing Conditions"
+  },
+  "consultation": {
+    "menuTitle": "Consultations",
+    "title": "My Consultations",
+    "symptoms": "Symptoms",
+    "analysis": "Analysis",
+    "treatments": "Treatments",
+    "symptom": {
+      "title": "Symptoms",
+      "noData": "No symptoms available"
+    },
+    "clinicalObservation": {
+      "title": "Clinical Observations",
+      "noData": "No clinical observations available"
+    },
+    "labResult": {
+      "title": "Lab Results",
+      "noData": "No lab results available"
+    },
+    "diagnosis": {
+      "title": "Diagnoses",
+      "noData": "No diagnoses available"
+    },
+    "treatment": {
+      "title": "Treatments",
+      "noData": "No treatments available"
+    },
+  },
+  "doctor": {
+    "menuTitle": "Doctors",
+    "title": "My Doctors",
+    "specialization": "Specialization"
+  },
+  "hospital": {
+    "menuTitle": "Hospitals",
+    "title": "Hospitals"
+  }
+}

@@ -6,6 +6,7 @@ import NoData from '../../components/noData';
 import { Info } from '../../components/info';
 import SectionHeader from '../../components/sectionHeader';
 import data from '../../data';
+import i18n from '../../i18n';
 
 export default class Analysis extends React.Component {
   static propTypes = {
@@ -24,13 +25,13 @@ export default class Analysis extends React.Component {
   }
 
   renderLabResults = () => {
-    if (this.state.labResults.length === 0) return <NoData text='No lab results available' />;
+    if (this.state.labResults.length === 0) return <NoData text={i18n.t('consultation.labResult.noData')} />;
 
     return <RkText rkType='large'>Coming soon...</RkText>;
   };
 
   renderDiagnoses = () => {
-    if (this.state.diagnoses.length === 0) return <NoData text='No diagnoses available' />;
+    if (this.state.diagnoses.length === 0) return <NoData text={i18n.t('consultation.diagnosis.noData')} />;
 
     return <FlatList
              data={this.state.diagnoses}
@@ -50,9 +51,9 @@ export default class Analysis extends React.Component {
   render() {
     return (
       <ScrollView style={styles.root}>
-        <SectionHeader heading={'Lab Results'} />
+        <SectionHeader heading={i18n.t('consultation.labResult.title')} />
         {this.renderLabResults()}
-        <SectionHeader heading={'Diagnoses'} />
+        <SectionHeader heading={i18n.t('consultation.diagnosis.title')} />
         {this.renderDiagnoses()}
       </ScrollView>
     );
